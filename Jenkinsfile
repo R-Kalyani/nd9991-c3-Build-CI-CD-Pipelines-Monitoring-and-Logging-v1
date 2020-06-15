@@ -20,7 +20,7 @@ pipeline {
                  aquaMicroscanner imageName: 'alpine:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html' 
               }
            }
-     
+          sudo usermod -aG docker jenkins
          stage('Upload to AWS') {
               steps {
                   withAWS(region:'us-east-2',credentials:'udacity-rk') {
